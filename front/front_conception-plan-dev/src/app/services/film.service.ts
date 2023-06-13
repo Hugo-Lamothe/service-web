@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {error} from "@angular/compiler-cli/src/transformers/util";
-import {Subscription} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 import fetch from 'node-fetch';
 
 
@@ -25,5 +25,56 @@ export class FilmService {
     const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${this.apiKey}`;
     return this.http.get(url);
   }
+
+  postLike(like: boolean, idFilm: number){
+    const url = "http://localhost:3000/film";
+    return this.http.post(url,{"idFilm": idFilm, "like": like} ).subscribe((response) => {
+      console.log(response);
+      // Gérez la réponse ici
+    }, (error) => {
+      console.error(error);
+      // Gérez les erreurs ici
+    });
+  }
+
+  putLike(idFilm: number){
+    const url = "http://localhost:3000/film";
+    return this.http.put(url,{"idFilm": idFilm} ).subscribe((response) => {
+      console.log(response);
+      // Gérez la réponse ici
+    }, (error) => {
+      console.error(error);
+      // Gérez les erreurs ici
+    });
+  }
+
+  /*getLike(idFilm: number){
+    const url = "http://localhost:3000/film";
+    const requestBody = {
+      "idFilm": idFilm,
+    };
+
+      const httpOptions = {
+        params: new HttpParams({ fromObject: requestBody })
+      };
+    return this.http.get(url, httpOptions).subscribe((response) => {
+      console.log(response);
+      // Gérez la réponse ici
+    }, (error) => {
+      console.error(error);
+      // Gérez les erreurs ici
+    });
+  }*/
+  /*async getLike(idFilm: number) {
+    const url = "http://localhost:3000/film";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({"idFilm": idFilm}),
+    });
+    return response.json();
+  }*/
 
 }

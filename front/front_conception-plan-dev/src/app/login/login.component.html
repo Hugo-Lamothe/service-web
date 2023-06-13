@@ -1,19 +1,19 @@
-<section class="item" *ngFor="let movie of movies">
+<section class="item">
   <article>
     <div class="item__img">
-       <img src="{{ movie.backdrop_path }}" alt="Photographie d'un canapé">
+       <img src="http://image.tmdb.org/t/p/w500/{{ movies.poster_path }}" alt="Photographie d'un canapé">
     </div>
     <div class="item__content">
 
       <div class="item__content__titlePrice">
-        <h1 id="title">{{ movie.title }}</h1>
+        <h1 id="title">{{ movies.title }}</h1>
       </div>
-      <p class="productDescription">{{ movie.vote_average }}</p>
+      <p class="productDescription">{{ movies.vote_average }}</p>
       <div class="item__content__description">
         <p class="item__content__description__title">Description :</p>
-        <p id="description"><p class="productDescription">{{ movie.description }}</p>
+        <p id="description"><p class="productDescription">{{ movies.overview }}</p>
       </div>
-
+      <button (click)="addLike()">{{ buttonText }}</button>
     </div>
   </article>
 </section>

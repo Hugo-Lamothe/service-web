@@ -2,7 +2,8 @@
 <section class="items" id="items" *ngFor="let movie of movies">
             <a (click)="localStorage.setItem('film', movie.id)" routerLink="login">
               <article>
-                <img src="{{ movie.backdrop_path }}" alt="Lorem ipsum dolor sit amet, Kanap name1">
+                <img src="http://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="Lorem ipsum dolor sit amet, Kanap name1">
+                <p>{{ movie.profil_path }}{{ movie.backdrop_path }}</p>
                 <h3 class="productName">{{ movie.title }}</h3>
                 <p class="productDescription">{{ movie.vote_average }}</p>
               </article>
