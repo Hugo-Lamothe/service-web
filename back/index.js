@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 const port = 3000;
 
 // Connexion à la base de données MongoDB
-mongoose.connect('mongodb://localhost:27017/film', {
+mongoose.connect('mongodb+srv://hugolamothe33:service@cluster0.k8xojnl.mongodb.net/film', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
