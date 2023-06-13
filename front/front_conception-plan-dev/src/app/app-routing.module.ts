@@ -4,7 +4,7 @@ import { SallesComponent } from './salles/salles.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: "salles", component: SallesComponent },
+  { path: "", component: SallesComponent },
   { path: "login", component: LoginComponent }
 ];
 
